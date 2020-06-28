@@ -6,7 +6,7 @@ const mapNodes = (node) => {
         description: node.description,
         parent_to: node.parent_to ? node.parent_to.map(x => mapNodes(x)) : undefined,
     };
-}
+};
 
 module.exports.get = async (req, res) => {
     try {
@@ -17,4 +17,4 @@ module.exports.get = async (req, res) => {
         console.error(`Exception message: ${ex.message}`);
         res.status(404).end();
     }
-}
+};

@@ -4,7 +4,6 @@ const config = require('../config.json');
 module.exports.getAll = async () => {
     const driver = neo4j.driver(config.url, neo4j.auth.basic(config.user, config.pass));
     const session = driver.session();
-    
     const results = await session.run(`
         MATCH p=(n:Node)-[:PARENT_TO*]->(m)
         WHERE NOT (:Node)-[:PARENT_TO]->(n)
@@ -14,5 +13,6 @@ module.exports.getAll = async () => {
     `);
     console.log(results);
 
-    return results.records.map(x => x._fields);
+    // eslint-disable-next-line no-underscore-dangle
+    return results.records.map((x) => x._fields);
 };
