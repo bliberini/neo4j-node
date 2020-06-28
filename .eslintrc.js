@@ -3,4 +3,8 @@ module.exports = {
     rules: {
         indent: ['error', 4],
     },
+    plugins: ['jest'],
+    env: {
+        jest: true,
+    },
 };

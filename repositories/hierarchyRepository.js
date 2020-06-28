@@ -11,7 +11,8 @@ module.exports.getAll = async () => {
         CALL apoc.convert.toTree(ps) yield value
         RETURN value
     `);
-    console.log(results);
+
+    await driver.close();
 
     // eslint-disable-next-line no-underscore-dangle
     return results.records.map((x) => x._fields);

@@ -1,5 +1,5 @@
-const hierarchyService = require('../services/hierarchyService');
+const hierarchyController = require('../controllers/hierarchyController');
 
 module.exports = (app) => {
-    app.get('/hierarchy', hierarchyService.get);
+    app.get('/hierarchy', hierarchyController.get);
 };
